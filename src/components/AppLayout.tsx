@@ -1,3 +1,4 @@
+import Layout from "@/pages/root/Layout";
 import { Helmet } from "react-helmet-async";
 import { Outlet } from "react-router-dom";
 
@@ -8,9 +9,9 @@ const AppLayout = () => {
                 <html lang="en"/>
             </Helmet>
 
-            <div>
+            <Layout>
                 <Outlet />
-            </div>
+            </Layout>
         </div>
     )
 }
