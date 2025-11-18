@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import NavItems from "./NavItems"
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/clerk-react"
 
 const NavBar = () => {
     return (
@@ -17,7 +18,16 @@ const NavBar = () => {
 
             <div className="flex items-center gap-8">
                 <NavItems />
-                <p className="text-gray-700">Sign In</p>
+                
+                <SignedOut>
+                    <SignInButton>
+                        <button  className="btn-signin">Sign In</button>
+                    </SignInButton>
+                </SignedOut>
+
+                <SignedIn>
+                    <UserButton afterRedirectUrl="/"/>
+                </SignedIn>
             </div>
         </nav>
     )
