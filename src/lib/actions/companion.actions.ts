@@ -26,7 +26,7 @@ export const createCompanion = async (
     formData: CompanionData, 
     token: string): Promise<CompanionResponse> => {
 
-    console.log("Token", token)
+    // console.log("Token", token)
     const res = await fetch(`${import.meta.env.VITE_API_URL}/supabase/create-companion/`, {
         method: "POST",
         headers: {
@@ -41,6 +41,61 @@ export const createCompanion = async (
     }
 
     return res.json();
+};
+
+export const getAllCompanions = async (
+    // token: string,
+    // limit: number = 10,
+    // page: number = 1,
+    subject?: string,
+    topic?: string
+): Promise<CompanionResponse[]> => {
+    const params = new URLSearchParams();
+  
+    // params.append("limit", limit.toString());
+    // params.append("page", page.toString());
+  
+    if (subject) params.append("subject", subject);
+    if (topic) params.append("topic", topic);
+  
+    const res = await fetch(
+      `${import.meta.env.VITE_API_URL}/supabase/companions/?${params.toString()}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        //   Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+  
+    if (!res.ok) {
+      throw new Error("Failed to fetch companions");
+    }
+  
+    return res.json();
+};
+  
+export const getCompanionById = async (
+  id: string,
+  // token?: string
+): Promise<CompanionResponse> => {
+  const res = await fetch(
+    `${import.meta.env.VITE_API_URL}/supabase/companions/${id}/`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        // ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      },
+    }
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch companion");
+  }
+
+  return res.json();
 };
 
 
