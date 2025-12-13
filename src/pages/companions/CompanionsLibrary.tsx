@@ -28,9 +28,11 @@ const CompanionsLibrary = () => {
     }, [isLoaded, userId, navigate, companions]);
     
     useEffect(() => {
+        const limit = 10;
+        const page = 1;
         const fetchCompanions = async () => {
             try {
-                const data = await getAllCompanions(subject, topic); 
+                const data = await getAllCompanions(limit, page, subject, topic); 
                 setCompanions(data);
             } catch (err) {
                 console.log(error)

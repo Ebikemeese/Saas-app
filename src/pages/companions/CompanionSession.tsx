@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getAllCompanions, getCompanionById } from "@/lib/actions/companion.actions"
+import { getCompanionById, type CompanionResponse } from "@/lib/actions/companion.actions"
 import { useAuth, useUser } from "@clerk/clerk-react";
 import { useNavigate } from "react-router-dom";
 import { getSubjectColor } from "../../lib/utils"
@@ -41,8 +41,10 @@ const CompanionSession = () => {
         fetchCompanion();
     }, [id]);
 
+    
+
      if (!companion) {
-        return <div className="flex items-center justify-center">Loading Companions</div>
+        return <div className="flex items-center justify-center">Loading Companion</div>
     }
    
     return (
@@ -86,8 +88,15 @@ const CompanionSession = () => {
             </article>
 
             <CompanionComponent 
-                companion={companion}
-                user={user}
+                companionId={companion.id}
+                subject={companion.subject}
+                topic={companion.topic}
+                name={companion.name}
+                userName={`${user?.firstName} ${user?.lastName}`}
+                userImage={user?.imageUrl ?? ""}
+                voice={companion.voice}
+                style={companion.style}
+                userId={user?.id ?? ""}
             />
         </main>
     );

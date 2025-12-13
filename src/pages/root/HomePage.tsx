@@ -1,9 +1,55 @@
 import CompanionCard from "@/components/CompanionCard"
 import CompanionsList from "@/components/CompanionsList"
 import Cta from "@/components/Cta"
-import {recentSessions} from "../../../constants/index"
+import { useEffect, useState } from "react"
+import { getAllCompanions, type CompanionResponse } from "@/lib/actions/companion.actions"
+import { getRecentSessions } from "@/lib/actions/companion.actions"
+import { getSubjectColor } from "@/lib/utils"
+import { useAuth } from "@clerk/clerk-react"
 
 const HomePage = () => {
+
+    const { getToken } = useAuth()
+    const [recentSessions, setRecentSessions] = useState<CompanionResponse[]>([])
+    const [companions, setCompanions] = useState<CompanionResponse[]>([])
+
+    useEffect(() => {
+      
+        const fetchCompanions = async () => {
+            const limit = 3;
+            const page = 1;
+            try {
+                const fetchCompanion = await getAllCompanions(limit, page)
+                setCompanions(fetchCompanion);
+            } catch (error) {
+                console.log(error)
+            }
+        }
+     
+        fetchCompanions()
+    }, [])
+
+    useEffect(() => {
+        const fetchRecentSessions = async () => {
+            const limit = 10;
+
+            try {
+                const token = await getToken({ template: "default" })
+                
+                if (!token) {
+                    return
+                }
+                const fetchRecentSession = await getRecentSessions(token, limit)
+                setRecentSessions(fetchRecentSession)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    
+        fetchRecentSessions()
+    }, [])
+    
+
     return (
         <main>
             <h1 className="text-2xl">
@@ -11,30 +57,14 @@ const HomePage = () => {
             </h1>
 
             <section className="home-section">
-                <CompanionCard 
-                    id="123"
-                    name="Neural the Brainy Explorer"
-                    topic="Neural Network of the Brain"
-                    subject="science"
-                    duration={45}
-                    color="#ffda6e"
-                />
-                <CompanionCard 
-                    id="234"
-                    name="Countsy the Number Wizard"
-                    topic="Derivatives & Integrals"
-                    subject="maths"
-                    duration={30}
-                    color="#e5d0ff"
-                />
-                <CompanionCard 
-                    id="423"
-                    name="Verba the Vocabulary Builder"
-                    topic="English Literature"
-                    subject="language"
-                    duration={45}
-                    color="#BDE7FF"
-                />
+
+                {companions.map((companion) => (
+                    <CompanionCard 
+                        {...companion}
+                        key={companion.id}
+                        color={getSubjectColor(companion.subject)}
+                    />
+                ))}
                 
             </section>
 
