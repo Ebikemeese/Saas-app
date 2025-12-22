@@ -29,7 +29,7 @@ const CompanionCard = ({
 
                 <button className="companion-bookmark">
                     <img 
-                        src="/icons/bookmark.svg" 
+                        src="/Saas-app/icons/bookmark.svg" 
                         alt="bookmark"
                         width={12.5}
                         height={15} 
@@ -42,7 +42,7 @@ const CompanionCard = ({
 
             <div className="flex items-center gap-2">
                 <img 
-                    src="/icons/clock.svg" 
+                    src="/Saas-app/icons/clock.svg" 
                     alt="duration" 
                     width={13.5} 
                     height={13.5} 

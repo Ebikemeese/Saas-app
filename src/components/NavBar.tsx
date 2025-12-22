@@ -8,7 +8,7 @@ const NavBar = () => {
             <Link to="/">
                 <div className="flex items-center gap-2.5 cursor-pointer">
                     <img 
-                        src="/images/logo.svg" 
+                        src="/Saas-app/images/logo.svg" 
                         alt="logo" 
                         width={46}
                         height={44}
@@ -26,7 +26,7 @@ const NavBar = () => {
                 </SignedOut>
 
                 <SignedIn>
-                    <UserButton afterRedirectUrl="/"/>
+                    <UserButton fallbackRedirectUrl="/"/>
                 </SignedIn>
             </div>
         </nav>

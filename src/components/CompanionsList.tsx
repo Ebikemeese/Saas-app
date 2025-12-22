@@ -11,20 +11,23 @@ import { cn, getSubjectColor } from "@/lib/utils";
 import { Link } from "react-router-dom";
 
 interface CompanionsListProps {
-    // title: string;
+    title: string;
     companions?: Companion[];
     classNames?: string;
 }
 
 const CompanionsList = ({ 
-    // title, 
+    title, 
     companions, 
     classNames }: CompanionsListProps
 ) => {
+
+    if (companions?.length === 0) { return null; }
+
     return (
         <article className={cn("companion-list", classNames )}>
-            <h2 className="font-bold text-3xl">Recent Sessions</h2>
-
+            <h2 className="font-bold text-3xl">{title}</h2>
+        
             <Table>
                 <TableHeader>
                     <TableRow>
@@ -44,7 +47,7 @@ const CompanionsList = ({
                                             style={{ backgroundColor: getSubjectColor(companion.subject) }}
                                         >
                                             <img 
-                                                src={`/icons/${companion.subject}.svg`} 
+                                                src={`/Saas-app/icons/${companion.subject}.svg`} 
                                                 alt={companion.subject}
                                                 width={35}
                                                 height={35}
@@ -75,7 +78,7 @@ const CompanionsList = ({
                                     style={{ backgroundColor: getSubjectColor(companion.subject) }}
                                 >
                                     <img 
-                                        src={`/icons/${companion.subject}.svg`} 
+                                        src={`/Saas-app/icons/${companion.subject}.svg`} 
                                         alt={companion.subject}
                                         width={18}
                                         height={18}
@@ -92,7 +95,7 @@ const CompanionsList = ({
                                     </p>
 
                                     <img 
-                                        src="/icons/clock.svg" 
+                                        src="/Saas-app/icons/clock.svg" 
                                         alt="minutes"
                                         width={14}
                                         height={14}

@@ -70,7 +70,7 @@ const HomePage = () => {
 
             <section className="home-section">
                 <CompanionsList 
-                    // title="Recently completed sessions"
+                    title="Recently completed sessions"
                     companions={recentSessions}
                     classNames="w-2/3 max-lg:w-full"
                 />

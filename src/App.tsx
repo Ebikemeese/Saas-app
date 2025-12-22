@@ -8,14 +8,14 @@ import CompanionSession from "./pages/companions/CompanionSession";
 import NewCompanion from "./pages/companions/NewCompanion"
 import SignInPage from "./pages/sign-in/SignInPage";
 import Subscription from "./pages/subscription/Subscription";
-// import { useState, useEffect } from "react";
-// import { supabase } from "./utils/supabase";
+import SignUpPage from "./pages/sign-in/SignUpPage";
+import * as Sentry from '@sentry/react';
 
 function App() {
 
   return (
       <HelmetProvider>
-        <BrowserRouter>
+        <BrowserRouter basename="/Saas-app">
           <Routes>
             
             {/* Routes without layout */}
@@ -31,7 +31,7 @@ function App() {
               <Route path="companions/new" element={<NewCompanion />} />
               <Route path="sign-in" element={<SignInPage />} />
               <Route path="subscription" element={<Subscription />} />
-              
+              <Route path="sign-up" element={<SignUpPage />} />
             </Route>
           </Routes>
         </BrowserRouter> 
@@ -41,4 +41,4 @@ function App() {
   )
 }
 
-export default App
+export default Sentry.withProfiler(App)

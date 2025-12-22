@@ -63,7 +63,7 @@ const CompanionForm = () => {
             console.log("Created companion:", companion);
             
             if (companion) {
-                navigate(`/companions/${companion.id}`)
+                navigate(`/companions/`)
             } else {
                 console.log("Failed to create a companion")
                 navigate("/")

@@ -58,7 +58,7 @@ const CompanionSession = () => {
                         }}
                     >
                         <img
-                            src={`/icons/${companion.subject}.svg`}
+                            src={`/Saas-app/icons/${companion.subject}.svg`}
                             alt={companion.subject}
                             width={35}
                             height={35}

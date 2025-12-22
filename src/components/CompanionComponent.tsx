@@ -37,7 +37,7 @@ const CompanionComponent = ({
     const lottieRef = useRef<LottieRefCurrentProps>(null)
     const { getToken } = useAuth();
 
-    // console.log(companionId)
+    console.log(userId)
     useEffect(() => {
         if (lottieRef) {
             if (isSpeaking) {
@@ -148,7 +148,7 @@ const CompanionComponent = ({
                             )}
                         >
                             <img
-                                src={`/icons/${subject}.svg`}
+                                src={`/Saas-app/icons/${subject}.svg`}
                                 alt={subject}
                                 width={150}
                                 height={150}
@@ -191,7 +191,7 @@ const CompanionComponent = ({
                         disabled={callStatus !== "ACTIVE"}
                     >
                         <img
-                            src={isMuted ? "/icons/mic-off.svg" : "/icons/mic-on.svg"}
+                            src={isMuted ? "/Saas-app/icons/mic-off.svg" : "/icons/mic-on.svg"}
                             alt="mic"
                             width={36}
                             height={36}
