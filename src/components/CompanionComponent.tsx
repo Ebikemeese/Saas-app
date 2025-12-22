@@ -117,7 +117,7 @@ const CompanionComponent = ({
             variableValues: {
                 subject, topic, style
             },
-            clientMessages: ['transcript'],
+            clientMessages: 'transcript',
             serverMessages: undefined,
         }
 

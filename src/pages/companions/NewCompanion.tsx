@@ -4,11 +4,15 @@ import { useEffect, useState } from "react";
 import CompanionForm from "@/components/CompanionForm";
 import { getUserCompanions } from "@/lib/actions/companion.actions";
 
+type UserMetadata = {
+  plan?: string;
+};
+
 const NewCompanion = () => {
   // const { getToken } = useAuth();
   const { user, isLoaded } = useUser();
   const navigate = useNavigate();
-
+  const plan = (user?.publicMetadata as UserMetadata)?.plan;
   const [hasPermission, setHasPermission] = useState<boolean | null>(null);
   const [loading, setLoading] = useState(true);
   const [count, setCount] = useState<number>(0);
@@ -80,7 +84,7 @@ const NewCompanion = () => {
           <h1>You've reached your limit</h1>
 
           <p>
-            You’ve created {count} companions. Your current plan ({user?.publicMetadata?.plan})
+            You’ve created {count} companions. Your current plan ({plan})
             has reached its limit. Upgrade to create more companions and unlock premium features.
           </p>
 

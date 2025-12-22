@@ -26,7 +26,7 @@ const NavBar = () => {
                 </SignedOut>
 
                 <SignedIn>
-                    <UserButton fallbackRedirectUrl="/"/>
+                    <UserButton afterSignOutUrl="/sign-in"/>
                 </SignedIn>
             </div>
         </nav>
