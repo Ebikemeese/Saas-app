@@ -26,7 +26,7 @@ const NavBar = () => {
                 </SignedOut>
 
                 <SignedIn>
-                    <UserButton afterSignOutUrl="/sign-in"/>
+                    <UserButton afterSignOutUrl="/Saas-app/sign-in"/>
                 </SignedIn>
             </div>
         </nav>

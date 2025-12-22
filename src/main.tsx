@@ -25,8 +25,8 @@ createRoot(document.getElementById('root')!).render(
     <ClerkProvider 
       publishableKey={PUBLISHABLE_KEY} 
       appearance={{variables: {colorPrimary: "#fe5933"}}} 
-      signInUrl="/sign-in"
-      signUpUrl="/sign-up"
+      signInUrl="/Saas-app/sign-in"
+      signUpUrl="/Saas-app/sign-up"
       
     >
       <App />
