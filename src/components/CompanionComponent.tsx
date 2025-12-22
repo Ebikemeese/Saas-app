@@ -191,7 +191,7 @@ const CompanionComponent = ({
                         disabled={callStatus !== "ACTIVE"}
                     >
                         <img
-                            src={isMuted ? "/Saas-app/icons/mic-off.svg" : "/icons/mic-on.svg"}
+                            src={isMuted ? "/Saas-app/icons/mic-off.svg" : "/Saas-app/icons/mic-on.svg"}
                             alt="mic"
                             width={36}
                             height={36}
