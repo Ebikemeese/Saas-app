@@ -17,12 +17,6 @@ function App() {
       <HelmetProvider>
         <BrowserRouter basename="/Saas-app">
           <Routes>
-            
-            {/* Routes without layout */}
-            
-            {/* <Route path="sign-up" element={<SignUp />} /> */}
-
-            {/* Routes with layout */}
             <Route path="/" element={<AppLayout />}>
               <Route index element={<HomePage />} />
               <Route path="companions" element={<CompanionsLibrary />}/>

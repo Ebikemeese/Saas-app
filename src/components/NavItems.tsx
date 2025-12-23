@@ -3,8 +3,8 @@ import { Link, useLocation } from "react-router-dom"
 
 const navItems = [
   { label: 'Home', href: '/' },
-  { label: 'Companions', href: '/companions' },
-  { label: 'My Journey', href: '/my-journey' },
+  { label: 'Companions', href: 'companions' },
+  { label: 'My Journey', href: 'my-journey' },
 ]
 
 const NavItems = () => {

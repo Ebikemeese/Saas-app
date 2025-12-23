@@ -19,7 +19,7 @@ const CompanionsLibrary = () => {
     const navigate = useNavigate();
     const { user } = useUser()
 
-    console.log("User info:", user)
+    // console.log("User info:", user)
     useEffect(() => {
         if (!user?.id) {
         navigate("/sign-in");
