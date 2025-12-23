@@ -5,7 +5,7 @@ import CompanionCard from "@/components/CompanionCard";
 import { getSubjectColor } from "@/lib/utils";
 // import { useSearchParams } from "react-router-dom";
 import SearchInput from "@/components/SearchInput";
-import SubjectFilter from "@/components/SubjectFilter";
+// import SubjectFilter from "@/components/SubjectFilter";
 import { useAuth } from "@clerk/clerk-react";
 import { useNavigate } from "react-router-dom";
 import { getUserCompanions } from "@/lib/actions/companion.actions";
@@ -48,7 +48,7 @@ const CompanionsLibrary = () => {
                 <h1>Companion Library</h1>
                 <div className="flex gap-4">
                     <SearchInput />
-                    <SubjectFilter />
+                    {/* <SubjectFilter /> */}
                 </div>
             </section>
             

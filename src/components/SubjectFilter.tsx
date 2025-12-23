@@ -9,18 +9,15 @@ const SubjectFilter = () => {
   const pathname = location.pathname;
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-
-  // default to "all" if no subject param
   const query = searchParams.get("subject") || "all";
   const [searchQuery, setSearchQuery] = useState(query);
 
-  // track first render so we don't navigate immediately
   const firstRender = useRef(true);
 
   useEffect(() => {
     if (firstRender.current) {
       firstRender.current = false;
-      return; // skip navigation on mount
+      return; // don’t navigate on initial mount
     }
 
     if (searchQuery === "all") {
@@ -44,7 +41,6 @@ const SubjectFilter = () => {
       <SelectTrigger className="input capitalize">
         <SelectValue placeholder="Subject" />
       </SelectTrigger>
-
       <SelectContent>
         <SelectItem value="all">All subjects</SelectItem>
         {subjects.map((subject) => (
