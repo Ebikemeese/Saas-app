@@ -5,7 +5,7 @@ import Footer from "./Footer";
 
 const AppLayout = () => {
     return (
-        <div>
+        <div className="min-h-screen flex flex-col">
             <Helmet>
                 <html lang="en"/>
             </Helmet>

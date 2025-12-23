@@ -20,7 +20,7 @@ const SubjectFilter = () => {
                 params: searchParams.toString(),
                 keysToRemove: ["subject"],
             });
-            // navigate(newUrl); 
+            navigate(pathname + (newUrl ? `?${newUrl}` : ""));
         } else {
             newUrl = formUrlQuery({
                 params: searchParams.toString(),

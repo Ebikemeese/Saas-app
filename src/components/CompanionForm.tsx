@@ -255,7 +255,13 @@ const CompanionForm = () => {
                     )}
                 />
 
-                <Button type="submit" className="w-full cursor-pointer">Build Your Companion</Button>
+                <Button 
+                    type="submit" 
+                    className="w-full cursor-pointer"
+                    disabled={form.formState.isSubmitting}
+                >
+                    {form.formState.isSubmitting ? "Submitting..." : "Build Your Companion"}
+                </Button>
             </form>
         </Form>
     )
