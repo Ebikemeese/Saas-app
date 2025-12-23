@@ -13,23 +13,21 @@ const SubjectFilter = () => {
     const [searchQuery, setSearchQuery] = useState(query)
 
     useEffect(() => {
-        let newUrl;
-
         if (searchQuery === "all") {
-            newUrl = removeKeysFromUrlQuery({
+            const newParams = removeKeysFromUrlQuery({
             params: searchParams.toString(),
             keysToRemove: ["subject"],
             });
-            navigate(pathname + (newUrl ? `?${newUrl}` : ""));
+            navigate({ pathname, search: newParams ? `?${newParams}` : "" });
         } else {
-            newUrl = formUrlQuery({
+            const newParams = formUrlQuery({
             params: searchParams.toString(),
             key: "subject",
             value: searchQuery,
             });
-            navigate(pathname + `?${newUrl}`);
+            navigate({ pathname, search: `?${newParams}` });
         }
-    }, [searchQuery, pathname, navigate, searchParams]);
+    }, [searchQuery, pathname, searchParams, navigate]);
 
 
     return (

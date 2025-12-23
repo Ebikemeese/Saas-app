@@ -22,7 +22,7 @@ const CompanionsLibrary = () => {
     // console.log("User info:", user)
     useEffect(() => {
         if (!user?.id) {
-        // navigate("/sign-in");
+            navigate("/sign-in");
         }
 
     }, [isLoaded, userId, navigate, companions]);
