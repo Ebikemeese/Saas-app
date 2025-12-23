@@ -22,7 +22,7 @@ const SearchInput = () => {
                     key: "topic",
                     value: searchQuery,
                 });
-                navigate(`${pathname}?${newUrl}`);
+                navigate(newUrl);
             } else {
                 navigate(pathname);
             }

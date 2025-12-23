@@ -17,19 +17,20 @@ const SubjectFilter = () => {
 
         if (searchQuery === "all") {
             newUrl = removeKeysFromUrlQuery({
-                params: searchParams.toString(),
-                keysToRemove: ["subject"],
+            params: searchParams.toString(),
+            keysToRemove: ["subject"],
             });
             navigate(pathname + (newUrl ? `?${newUrl}` : ""));
         } else {
             newUrl = formUrlQuery({
-                params: searchParams.toString(),
-                key: "subject",
-                value: searchQuery,
+            params: searchParams.toString(),
+            key: "subject",
+            value: searchQuery,
             });
-            navigate(newUrl ? newUrl : pathname);
+            navigate(pathname + `?${newUrl}`);
         }
-    }, [searchQuery]);
+    }, [searchQuery, pathname, navigate, searchParams]);
+
 
     return (
         <Select onValueChange={setSearchQuery} value={searchQuery}>
