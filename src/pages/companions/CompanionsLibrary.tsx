@@ -52,7 +52,7 @@ const CompanionsLibrary = () => {
                 </div>
             </section>
             
-            <section className="flex gap-3 max-md:flex-col max-md:my-2">
+            <section className="home-section">
                 {companions.map((companion) => (
                     <CompanionCard 
                         key={companion.id}
