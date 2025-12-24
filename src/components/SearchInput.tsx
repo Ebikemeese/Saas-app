@@ -12,26 +12,21 @@ const SearchInput = () => {
     const [searchQuery, setSearchQuery] = useState(query)
 
     useEffect(() => {
-
         const delayDebounceFn = setTimeout(() => {
-            let newUrl;
-
             if (searchQuery) {
-                newUrl = formUrlQuery({
-                    params: searchParams.toString(),
-                    key: "topic",
-                    value: searchQuery,
-                });
-                navigate(newUrl);
+            // just build the query string
+            const newParams = `topic=${searchQuery}`;
+            navigate({ pathname, search: `?${newParams}` });
+            console.log("New url", `${pathname}?${newParams}`);
             } else {
-                navigate(pathname);
+            navigate({ pathname });
+            console.log("Pathname", pathname);
             }
-
-        }, 500)
+        }, 500);
 
         return () => clearTimeout(delayDebounceFn);
-    }, [searchQuery, navigate, searchParams, pathname]);
-    
+    }, [searchQuery, pathname, navigate]);
+
 
     return (
         <div className="relative border border-black rounded-lg items-center flex gap-2 px-2 py-1 h-fit">

@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
-import { formUrlQuery, removeKeysFromUrlQuery } from "@jsmastery/utils";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { subjects } from "../../constants";
 
@@ -9,6 +8,8 @@ const SubjectFilter = () => {
   const pathname = location.pathname;
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+
+  // default to "all" if no subject param
   const query = searchParams.get("subject") || "all";
   const [searchQuery, setSearchQuery] = useState(query);
 
@@ -21,20 +22,13 @@ const SubjectFilter = () => {
     }
 
     if (searchQuery === "all") {
-      const newParams = removeKeysFromUrlQuery({
-        params: searchParams.toString(),
-        keysToRemove: ["subject"],
-      });
-      navigate({ pathname, search: newParams ? `?${newParams}` : "" });
+      // clear the subject param → URL is just /companions
+      navigate({ pathname });
     } else {
-      const newParams = formUrlQuery({
-        params: searchParams.toString(),
-        key: "subject",
-        value: searchQuery,
-      });
-      navigate({ pathname, search: `?${newParams}` });
+      // set subject param → URL is /companions?subject=xyz
+      navigate({ pathname, search: `?subject=${searchQuery}` });
     }
-  }, [searchQuery, pathname, searchParams, navigate]);
+  }, [searchQuery, pathname, navigate]);
 
   return (
     <Select onValueChange={setSearchQuery} value={searchQuery}>
