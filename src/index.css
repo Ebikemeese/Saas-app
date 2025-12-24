@@ -141,6 +141,8 @@ body {
 }
 
 @layer components {
+
+  .hom-section { @apply grid gap-6 w-full sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4; }
   .home-section {
     @apply flex gap-4 justify-between items-start w-full max-lg:flex-col-reverse max-lg:items-center;
   }
