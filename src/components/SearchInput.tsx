@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom"
-import { formUrlQuery } from "@jsmastery/utils"
+// import { formUrlQuery } from "@jsmastery/utils"
 
 const SearchInput = () => {
 
@@ -17,10 +17,10 @@ const SearchInput = () => {
             // just build the query string
             const newParams = `topic=${searchQuery}`;
             navigate({ pathname, search: `?${newParams}` });
-            console.log("New url", `${pathname}?${newParams}`);
+            // console.log("New url", `${pathname}?${newParams}`);
             } else {
             navigate({ pathname });
-            console.log("Pathname", pathname);
+            // console.log("Pathname", pathname);
             }
         }, 500);
 
