@@ -27,7 +27,7 @@ export const configureAssistant = (voice: string, style: string) => {
     },
     voice: {
       provider: "11labs",
-      voiceId: voiceId,
+      voiceId: "sarah",
       stability: 0.4,
       similarityBoost: 0.8,
       speed: 1,
@@ -54,8 +54,8 @@ export const configureAssistant = (voice: string, style: string) => {
         },
       ],
     },
-    clientMessages: "transcript",
-    serverMessages: undefined,
+    clientMessages: ['transcript'],
+    serverMessages: ['transcript'],
   };
   return vapiAssistant;
 };

@@ -117,10 +117,10 @@ const CompanionComponent = ({
             variableValues: {
                 subject, topic, style
             },
-            clientMessages: 'transcript',
-            serverMessages: undefined,
+            clientMessages: ['transcript'],
+            serverMessages: ['transcript'],
         }
-
+        console.log("Assistant config", configureAssistant(voice, style));
         vapi.start(configureAssistant(voice, style), assistantOverrides)
     }
 
