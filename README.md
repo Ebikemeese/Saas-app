@@ -1,73 +1,44 @@
-# React + TypeScript + Vite
+# 🎓 Converso LMS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Converso LMS is a modern SaaS learning platform designed to make education **interactive, personalized, and engaging**.  
+Built with **Django**, **Django REST Framework**, **Clerk** (authentication & subscription billing), **Supabase**, **ShadcnUI**, **TypeScript**, and **Vapi AI**, Converso LMS empowers learners to create their own AI-powered learning companions and track their educational journey.
 
-Currently, two official plugins are available:
+🌐 Live Demo: [https://ebikemeese.github.io/Saas-app](https://ebikemeese.github.io/Saas-app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🤖 **AI Learning Companion**  
+  - Create an interactive learning companion powered by Vapi AI.  
+  - Choose between **male** or **female** voices.  
+  - Real-time **transcript messages** during conversations.  
 
-## Expanding the ESLint configuration
+- 💳 **Subscription Management**  
+  - Authentication and subscription billing handled via **Clerk**.  
+  - Upgrade or downgrade your subscription plan seamlessly.  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 📚 **Companion Management**  
+  - Filter companions by **subject**.  
+  - Search functionality to quickly find the right companion.  
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- 📖 **Learning Experience**  
+  - Learn **anything Vapi AI can touch** with guided, conversational sessions.  
+  - Personalized teaching style based on your preferences.  
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- 📊 **User Journey Tracking**  
+  - View your **total completed companion conversations**.  
+  - Update your **profile** and manage account settings.  
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Tech Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- **Backend**: 🐍 Django, Django REST Framework  
+- **Auth & Billing**: 🔑 Clerk  
+- **Database**: 🗄️ Supabase  
+- **Frontend**: ⚛️ React, TypeScript, ShadcnUI, TailwindCSS  
+- **AI Integration**: 🤖 Vapi AI  
+- **Deployment**: 🚀 GitHub Pages (via `gh-pages`)  
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
