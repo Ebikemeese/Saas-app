@@ -54,8 +54,8 @@ export const configureAssistant = (voice: string, style: string) => {
         },
       ],
     },
-    clientMessages: ['transcript'],
-    serverMessages: [],
+    clientMessages: ["transcript"] as CreateAssistantDTO["clientMessages"],
+    serverMessages: ["transcript"] as CreateAssistantDTO["serverMessages"],
   };
   return vapiAssistant;
 };
