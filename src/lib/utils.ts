@@ -27,7 +27,7 @@ export const configureAssistant = (voice: string, style: string) => {
     },
     voice: {
       provider: "11labs",
-      voiceId: "sarah",
+      voiceId: voiceId,
       stability: 0.4,
       similarityBoost: 0.8,
       speed: 1,
