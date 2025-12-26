@@ -10,6 +10,7 @@ import SignInPage from "./pages/sign-in/SignInPage";
 import Subscription from "./pages/subscription/Subscription";
 import SignUpPage from "./pages/sign-in/SignUpPage";
 import * as Sentry from '@sentry/react';
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
           <Routes>
             <Route path="/" element={<AppLayout />}>
               <Route index element={<HomePage />} />
+              <Route path="*" element={<NotFoundPage />} />
               <Route path="companions" element={<CompanionsLibrary />}/>
               <Route path="my-journey" element={<Profile />} />
               <Route path="companions/:id" element={<CompanionSession />} />
